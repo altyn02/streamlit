@@ -2,16 +2,18 @@ import streamlit as st
 
 st.title("title")
 st.header("header")
-st.markdown ("""
+st.markdown("""
 markdown
 **markdown**
 """)
-st.write ("Hello, world!")
+st.write("Hello, world!")
+st.write("Здесь была Алтынсара")
 
-st.write ("Здесь была Алтынсара")
-a=st.number_input("dO YOU KNOW HOW COOL I AM? RATE FROM 1 TO 10", step=1)
-b=st.text_input("PLS, WRITE SOMETHING 제발")
+a = st.number_input("DO YOU KNOW HOW COOL I AM? RATE FROM 1 TO 10", step=1)
+b = st.text_input("PLS, WRITE SOMETHING 제발")
 
+total = 0  # initialize before the loop
 for i in range(a):
-  total+=i
-  st.write((total)
+    total += i
+
+st.write("Total is:", total)
