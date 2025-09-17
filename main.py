@@ -1,19 +1,24 @@
 import streamlit as st
 
-st.title("title")
-st.header("header")
-st.markdown("""
-markdown
-**markdown**
-""")
-st.write("Hello, world!")
-st.write("Здесь была Алтынсара")
+st.title("과제 1: 숫자 합계 및 선택 숫자까지 합산하기")
 
-a = st.number_input("DO YOU KNOW HOW COOL I AM? RATE FROM 1 TO 10", step=1)
-b = st.text_input("PLS, WRITE SOMETHING 제발")
+# --- 1단계: 두 숫자 입력받기 ---
+st.header("두 숫자를 입력하세요")
+A = st.number_input("숫자 A 입력:", value=0, step=1)
+B = st.number_input("숫자 B 입력:", value=0, step=1)
 
-total = 0  # initialize before the loop
-for i in range(a):
-    total += i
+# --- 2단계: A + B 합계 출력 ---
+sum_ab = A + B
+st.write(f"A + B의 합은 **{sum_ab}** 입니다.")
 
-st.write("Total is:", total)
+# --- 3단계: A, B 중 하나 선택 ---
+st.header("A 또는 B 중 선택하세요")
+choice = st.selectbox("합산할 숫자를 선택:", ("A", "B"))
+
+# --- 4단계: 1부터 선택된 숫자까지 모두 더한 값 출력 ---
+if choice == "A":
+    total_sum = sum(range(1, int(A) + 1))
+else:
+    total_sum = sum(range(1, int(B) + 1))
+
+st.write(f"1부터 {choice}까지의 합은 **{total_sum}** 입니다.")
